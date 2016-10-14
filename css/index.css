@@ -77,7 +77,8 @@ li {
     .header .inner .search {
       float: left;
       margin-left: 0.3rem;
-      width: 1rem; }
+      width: 1rem;
+      border-radius: 0.05rem; }
       .header .inner .search input {
         display: block;
         width: 1rem;
@@ -192,9 +193,16 @@ li {
             content: "\e747"; }
         .bigbox .contentbox .recieve .recieve-box .done {
           opacity: 0.5; }
+      .bigbox .contentbox .recieve input {
+        display: none; }
+      .bigbox .contentbox .recieve input.active {
+        display: block; }
     .bigbox .contentbox .plusmiss {
-      height: 0.27rem;
       color: red; }
+      .bigbox .contentbox .plusmiss .addthis {
+        display: none; }
+      .bigbox .contentbox .plusmiss .addthis.active {
+        display: block; }
       .bigbox .contentbox .plusmiss .aiconfont {
         font-family: 'iconfont';
         font-size: 16px;

@@ -16,15 +16,28 @@ $(function () {
         appendTo()
     })
 
-    $('.bigbox .contentbox .plusmiss .addmiss').on('touchstart',function () {
-        todos.push({title:'misson',state:0,isDel:0})
-        localStorage.data=JSON.stringify(todos)
-        render()
+    $('.bigbox .contentbox .plusmiss').on('touchstart','.addmiss',function () {
+        $('.addthis').toggleClass('active')
+        // todos.push({title:'misson',state:0,isDel:0})
+        // localStorage.data=JSON.stringify(todos)
+        // render()
+    })
+    $(document).on('keyup',function (e) {
+        var text=$('.addthis').val()
+        if(text==''){
+            return
+        }else
+        if(e.keyCode==13){
+            todos.push({title:text,state:0,isDel:0})
+            $('.addthis').removeClass('active')
+            localStorage.data=JSON.stringify(todos)
+            render()
+            $('.addthis').val('')
+        }
     })
 
     var left=null;
     $('.bigbox .contentbox .recieve .recieve-box').on('touchstart','.list-item',function (e) {
-
         left=e.originalEvent.changedTouches[0].pageX
     })
 
@@ -33,33 +46,54 @@ $(function () {
         var x=n-left;
         if(x>40){
             $(this).closest('li').css('transform','translate3d(0.3rem,0,0)')
-            $(this).closest('li').addClass('.done')
+            $(this).closest('li').css('opacity','0.5')
+
         }
         if(x<-30){
             $(this).closest('li').css('transform','translate3d(0,0,0)')
+            $(this).closest('li').css('opacity','1')
         }
     })
+    // $('.recieve-box').on('touchstart','.list-item',function () {
+    //     $(this).closest('li').toggleClass('done')
+    // })
 
-    var deletep = $('.close')
-    deletep.on('click', function () {
+    $('.recieve-box').on('touchstart', '.list-item', function () {
+        // alert(9)
+        $('.recieve input').addClass('active')
+        var contains = $(this).closest('li').text();
+        var index = $(this).closest('li').index()
+        // console.log(contains)
+        console.log(index)
+        $('.recieve .changes').val(contains)
+
+        $('.recieve .changebtn').on('click', function () {
+            var changecon = $('.changes').val()
+            // console.log(changecon)
+
+            todos[index].title = changecon
+            $('.recieve input').removeClass('active')
+            localStorage.data = JSON.stringify(todos)
+            render()
+            // $('.changes').val('')
+        })
+    })
+    // var deletep = $('.close')
+    $('.recieve-box').on('touchstart','.list-item .close', function () {
+        var i = $(this).closest('li').index();
+
         $(this).closest('li').addClass('.feichu').queue(function () {
             $(this).delay(800).dequeue()
-        }).remove()
+        }).remove();
 
-        var i = $(this).closest('li').index
         todos.splice(i, 1)
         localStorage.data = JSON.stringify(todos)
-        $(this).closest('li').remove()
-    })
-
-    $('.recieve-box').on('click','.list-item',function () {
-        $(this).closest('li').toggleClass('done')
+        render()
     })
 
     // $('.recieve-box').on('click',function () {
     //     $(this).closest('li').appendTo('input')
     // })
-
 
     // function deleteTodo() {
     //     var i=$(this).closest('li').index
@@ -67,6 +101,14 @@ $(function () {
     //     localStorage.data=JSON.stringify(todos)
     //     $(this).closest('li').remove()
     // }
+
+    //查找函数
+    console.log(todos)
+    $('searchs').on('touchstart',function () {
+        todos.title
+    })
+
+
 
     function render() {
         $('.recieve-box').empty()
@@ -80,4 +122,5 @@ $(function () {
                 .appendTo('.recieve-box')
         })
     }
+
 })

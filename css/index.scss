@@ -48,6 +48,8 @@ li {
       float: left;
       margin-left: 0.3rem;
       width: 1rem;
+      border-radius: 0.05rem;
+
       input {
         display: block;
         width: 1rem;
@@ -196,11 +198,23 @@ li {
           opacity: 0.5;
         }
       }
+      input{
+        display: none;
+      }
+      input.active{
+        display: block;
+      }
     }
     .plusmiss {
-      height: 0.27rem;
+      //height: 0.27rem;
       //position: relative;
       color: red;
+      .addthis{
+        display: none; 
+      }
+      .addthis.active{
+        display: block;
+      }
       .aiconfont {
         font-family: 'iconfont';
         font-size: 16px;
