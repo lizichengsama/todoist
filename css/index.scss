@@ -1,0 +1,243 @@
+@import "mixins.scss";
+
+@include useRem(320px)
+
+body, p, h2, ul, li {
+  margin: 0;
+  padding: 0;
+  font-size: 16px;
+}
+
+li {
+  list-style: none;
+}
+
+@font-face {
+  font-family: 'iconfont';
+  src: url(../ux_1476266176_5399623/iconfont.woff)
+}
+
+.header {
+  height: 0.4rem;
+  background-color: orange;
+  overflow: hidden;
+  .inner {
+    height: 0.3rem;
+    //background-color: black;
+    margin-top: 0.05rem;
+    position: relative;
+    overflow: hidden;
+    color: #fff;
+    .iconfonts {
+      font-family: 'iconfont';
+      display: block;
+      width: 0.2rem;
+      height: 0.2rem;
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      margin: auto;
+      margin-left: 0.07rem;
+      float: left;
+      font-size: 18px;
+    }
+    .icon-category::before {
+      content: "\e621";
+    }
+    .search {
+      float: left;
+      margin-left: 0.3rem;
+      width: 1rem;
+      input {
+        display: block;
+        width: 1rem;
+        height: 0.3rem;
+        border: none;
+        opacity: 0.5;
+        color: orange;
+      }
+    }
+    .icons {
+      height: 0.3rem;
+      width: 1.5rem;
+      float: right;
+      margin-right: 0.05rem;
+      //background-color: black;
+      .icon-plus::before {
+        content: "\e61d";
+      }
+      .icon-font {
+        font-family: 'iconfont';
+        font-size: 24px;
+        display: block;
+        width: 0.2rem;
+        height: 0.2rem;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        margin: auto;
+        margin-left: 0.5rem;
+        float: left;
+      }
+      .icon-ring::before {
+        content: "\e652";
+      }
+      .icon-fonts {
+        font-family: 'iconfont';
+        font-size: 24px;
+        display: block;
+        width: 0.2rem;
+        height: 0.2rem;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        margin: auto;
+        margin-right: 0.2rem;
+        float: right;
+      }
+      .icon-iconfontsetting::before {
+        content: "\e615";
+      }
+
+    }
+  }
+}
+
+.bigbox {
+  width: 3rem;
+  height: 1rem;
+  padding: 0.67rem 0 0.75rem 0.15rem;
+  .contentbox {
+    //height:0.6rem;
+    padding-bottom: 0.02rem;
+    margin-bottom: 0.38rem;
+    .recieve {
+      //height:0.33rem;
+      position: relative;
+      color: #3c3c3c;
+      margin-bottom: 0.2rem;
+      //background-color: black;
+      .aiconfont {
+        font-family: 'iconfont';
+        font-size: 24px;
+        display: block;
+        width: 0.2rem;
+        height: 0.2rem;
+        position: absolute;
+        top: 0;
+        right: 0;
+        margin: auto;
+      }
+      .icon-pop::before {
+        content: "\e676";
+      }
+      .recieve-box {
+        //height:0.9rem;
+        //display: none;
+        overflow: hidden;
+        .list-item {
+          display: block;
+          width: 2.8rem;
+          height: 0.3rem;
+          line-height: 0.3rem;
+          border-bottom: 1px solid silver;
+          position: relative;
+          transition: transform 0.8s ease;
+          .feichu {
+            animation: feichu 0.8s ease both;
+          }
+
+          @keyframes feichu {
+            0% {
+              transform: translate3d(0, 0, 0)
+            }
+            25% {
+              transform: translate3d(-25%, 0, 0)
+            }
+            50% {
+              transform: translate3d(-50%, 0, 0)
+            }
+            75% {
+              transform: translate3d(-75%, 0, 0)
+            }
+            100% {
+              transform: translate3d(-100%, 0, 0)
+            }
+          }
+          .linedel {
+            width: 80%;
+            height: 3px;
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            margin: auto;
+          }
+          .icon-font {
+            font-family: 'iconfont';
+            font-size: 16px;
+            display: block;
+            width: 0.2rem;
+            height: 0.2rem;
+            position: absolute;
+            top: 0;
+            right: 0;
+            margin: auto;
+            //border-radius: 50%;
+            //background-color: #979797;
+          }
+          .icon-close::before {
+            content: "\e747";
+          }
+        }
+        .done{
+          opacity: 0.5;
+        }
+      }
+    }
+    .plusmiss {
+      height: 0.27rem;
+      //position: relative;
+      color: red;
+      .aiconfont {
+        font-family: 'iconfont';
+        font-size: 16px;
+        display: block;
+        width: 0.2rem;
+        height: 0.2rem;
+        //position: absolute;
+        //top: 0;
+        //left:0;
+        //margin: auto;
+        float: left;
+      }
+      .icon-plus::before {
+        content: "\e61d";
+      }
+      span {
+        //margin-left:0.3rem;
+      }
+      .aiconfonts {
+        font-family: 'iconfont';
+        font-size: 16px;
+        display: block;
+        width: 0.2rem;
+        height: 0.2rem;
+        //position: absolute;
+        //top: 0;
+        //right:0;
+        //margin: auto;
+        float: right;
+        color: silver;
+      }
+      .icon-clock:before {
+        content: "\e64a";
+      }
+    }
+  }
+}
+
+
+

@@ -1,0 +1,59 @@
+
+@mixin juzhong{
+  position: absolute;
+  top:0;
+  left:0;
+  right:0;
+  bottom:0;
+  margin:auto;
+}
+@mixin fangxing($size){
+  width: $size;
+  height: $size;
+}
+@mixin yuanxing($size){
+  width: $size;
+  height: $size;
+  border-radius: 50%;
+}
+
+@media screen and (max-width:1000px){
+  .header{
+    height:80px;
+  }
+}
+@media screen and (max-width:800px){
+  .header{
+    height:60px;
+  }
+}
+
+%juzhongjian{
+  position: absolute;
+  top:0;
+  left:0;
+  right:0;
+  bottom:0;
+  margin:auto;
+}
+
+@mixin boxborder(){
+  border:1px solid black;
+  border-shadow: 0 0 8px #000;
+}
+
+
+@mixin useRem($design-size){
+
+  $device-size-list:1080px,768px,640px,414px,384px,375px,360px,$design-size;
+
+  @each $size in $device-size-list{
+    @media screen and (max-width: #{$size}) {
+      html{
+        font-size: 100px * $size/$design-size;
+      }
+    }
+  }
+
+}
+
